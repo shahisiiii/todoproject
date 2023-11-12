@@ -10,6 +10,8 @@ from  todoapp.models import Todos
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from django.utils.decorators import method_decorator
+from todoapp.decorators import login_required
 
 # Create your views here.
         
@@ -60,10 +62,17 @@ class SignIn(View):
                 messages.error(request,msg)
                 return render (request,"signin.html")
             
+
+@method_decorator(login_required,name="dispatch")           
 class SignOut(View):
     def get(self,request,*args,**kwargs):
+        # if request.user.is_authenticated:
         logout(request)
         return redirect('home')
+        # else:
+        #     messages.error(request,'you must login first')
+        #     return redirect("signin")
+
 
 class TodoCreate(CreateView):
     model=Todos

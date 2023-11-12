@@ -14,7 +14,9 @@
 
     <a href="{% url 'signup' %}">SIGNUP</a>
     <a href="{% url 'signin' %}">SIGNIN</a>
-    <a href="">SIGNOUT</a>
+    <a href="{% url 'signout' %}">SIGNOUT</a>
+
+    {% include 'form.html' %}
     
 </body>
 </html>

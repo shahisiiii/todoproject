@@ -23,6 +23,7 @@ urlpatterns = [
     path('',views.HomePage.as_view(),name='home'),
     path('signup',views.SignUp.as_view(),name='signup'),
     path('signin',views.SignIn.as_view(),name='signin'),
+    path('signout',views.SignOut.as_view(),name='signout'),
     path('addtodo',views.TodoCreate.as_view(),name='addtodo'),
     path('listtodo',views.TodoList.as_view(),name='listtodo'),
     path('edittodo/<int:id>',views.TodoEdit.as_view(),name='edittodo'),
